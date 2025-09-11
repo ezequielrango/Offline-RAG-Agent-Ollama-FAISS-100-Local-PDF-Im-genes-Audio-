@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: offline-rag
+    environment:
+      # Ollama nativo en el host (Mac)
+      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+      LOCAL_LLM: "${LOCAL_LLM:-mistral}"
+      EMBED_MODEL: "${EMBED_MODEL:-sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2}"
+      WHISPER_MODEL: "${WHISPER_MODEL:-base}"
+      HF_HOME: "/app/hf-cache"
+      PYTHONUNBUFFERED: "1"
+    ports:
+      - "8000:8000"
+      - "7860:7860"
+    volumes:
+      - ./data:/app/data
+      - ./indexes:/app/indexes
+      - ./storage:/app/storage
+      - ./hf-cache:/app/hf-cache
+      - ./scripts:/app/scripts
+      - ./app:/app/app
+    command: ["/bin/bash", "/app/scripts/entrypoint.sh"]

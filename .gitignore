@@ -1,0 +1,80 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+dist/
+build/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.ipynb_checkpoints/
+
+# -------------------------
+# OS & IDE
+# -------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/
+.vscode/
+*.code-workspace
+
+# -------------------------
+# Env / Secrets
+# -------------------------
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# -------------------------
+# Datos y artefactos del proyecto
+# -------------------------
+# (mantener estructura con .gitkeep)
+data/**
+!data/.gitkeep
+
+indexes/**          # índice FAISS
+!indexes/.gitkeep
+
+hf-cache/**         # caché de modelos (HF/Whisper)
+!hf-cache/.gitkeep
+
+storage/**          # SQLite y derivados
+!storage/.gitkeep
+
+# SQLite explícito por si aparece fuera de /storage
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+logs/
+*.log
+
+# -------------------------
+# Docker (no ignora Dockerfile/compose)
+# -------------------------
+docker/tmp/
+docker/*.log
+
+# -------------------------
+# Cobertura / testing
+# -------------------------
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+*.py,cover
+coverage.xml
