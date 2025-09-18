@@ -33,7 +33,7 @@ git clone y docker compose up -d
 * **Audio** → texto con **Whisper** (local).
 * **Embeddings** locales + **FAISS** para búsqueda vectorial.
 * **RAG** con **LangChain** + **LLM** vía **Ollama**.
-* **API HTTP** para integrarlo con **Vue** o **Go**.
+* **API HTTP** para integrarlo con proyectos que tengas en local.
 * **SQLite** para `chatlog`, `documents` y `chunks`.
 
 ---
